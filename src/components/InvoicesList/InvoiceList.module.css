@@ -1,0 +1,56 @@
+.invoice_list_header {
+  background: #f1f3f6;
+  margin-top: 8px;
+  color: #7e869b;
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 0;
+}
+
+.invoice_list p, .edit_buttons_block {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 8px 8px; 
+  vertical-align: top;
+  overflow: hidden;
+}
+
+.invoice_list_item {
+  border-bottom: 1px solid #e4e6e9;
+  color: #979797;
+} 
+
+.invoice_list_item .number{
+  color: #6085fe
+} 
+
+ .edit_buttons_block  button{ /*.edit_button,
+  .remove_button*/ 
+    background: none;
+    display: inline-block;
+    color: #7e869b;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 20px;
+    font-size: 16px;
+    border-bottom: 2px solid #7e869b;
+  
+} 
+
+
+@media (min-width: 576px) {
+  .invoice_list p, .edit_buttons_block {
+    width: 50%;
+    font-size: 16px;
+    padding: 20px 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .invoice_list p, .edit_buttons_block {
+    width: 25%;
+  }
+}

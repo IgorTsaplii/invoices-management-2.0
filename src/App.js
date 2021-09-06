@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import InvoicesListContainer from "./components/InvoicesList/InvoicesListContainer";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Invoices</h1>
+      <section className="action_bar">
+        <h2>Actions</h2>
+        <button id="add_new_button">Add new</button>
+      </section>
+      <InvoicesListContainer />
     </div>
   );
 }
