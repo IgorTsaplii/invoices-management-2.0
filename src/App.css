@@ -131,7 +131,7 @@ table {
 
 body {
   background: #f1f3f6;
-  padding: 16px; 
+  padding: 16px;
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -147,8 +147,7 @@ h2 {
   font-weight: 600;
 }
 
-section,
-form {
+section {
   margin-top: 20px;
   border: 1px solid #e4e6e9;
   padding: 20px 16px;
@@ -168,34 +167,28 @@ h1:after {
   position: absolute;
   top: 50%;
   right: 0;
-  width: 60%; 
+  width: 60%;
   height: 3px;
   background: #e4e6e9;
 }
 
-/* .action_bar,
-#add_invoice_block,
-#edit_invoice_block, #remove_invoice_block {
-  button {
-    color: #fff;
-    border: none;
-    background: #4973ff;
-    padding: 12px 32px;
-    border-radius: 6px;
-    margin: 8px 8px 0 0;
-    cursor: pointer;
+.big_blue_action_button {
+  color: #fff;
+  border: none;
+  background: #4973ff;
+  padding: 12px 32px;
+  border-radius: 6px;
+  margin: 8px 8px 0 0;
+  cursor: pointer;
+}
 
-    &:hover {
-      background: #1445e3;
-    }
+.blue_big_action_button:hover {
+  background: #1445e3;
+}
 
-    &:focus {
-      outline: none;
-    }
-  }
-} */
-
-
+.blue_big_action_button:focus {
+  outline: none;
+}
 
 @media (min-width: 576px) {
   h1:after {
@@ -204,8 +197,7 @@ h1:after {
 }
 
 @media (min-width: 768px) {
-  section,
-  form {
+  section {
     margin-top: 28px;
   }
 

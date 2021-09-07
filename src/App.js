@@ -1,17 +1,36 @@
+import React from "react";
+import { connect } from "react-redux";
 import "./App.css";
+import ActionBarConteiner from "./components/ActionBar/ActionBarConteiner";
+import AddInvoiceBlockContainer from "./components/AddInvoiceBlock/AddInvoiceBlockContainer";
+import EditInvoiceBlockContainer from "./components/EditInvoiceBlock/EditInvoiceBlockContainer";
 import InvoicesListContainer from "./components/InvoicesList/InvoicesListContainer";
 
-function App() {
+
+class App extends React.Component {
+  
+
+  render() {
+    if(this.props.isOpenAddBlock){
+      return <AddInvoiceBlockContainer />
+    }
+
+    if(this.props.isOpenEditBlock){
+      return <EditInvoiceBlockContainer />
+    }
   return (
     <div className="App">
       <h1>Invoices</h1>
-      <section className="action_bar">
-        <h2>Actions</h2>
-        <button id="add_new_button">Add new</button>
-      </section>
+      <ActionBarConteiner />
       <InvoicesListContainer />
     </div>
   );
 }
+}
 
-export default App;
+const mapStateToProps = (state) => ({
+  isOpenAddBlock: state.invoicesData.isOpenAddBlock,
+  isOpenEditBlock: state.invoicesData.isOpenEditBlock
+});
+
+export default connect(mapStateToProps, { })(App);

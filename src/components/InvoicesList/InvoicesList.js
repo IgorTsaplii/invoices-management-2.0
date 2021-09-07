@@ -4,6 +4,10 @@ import classes from "./InvoiceList.module.css";
 
 const InvoicesList = (props) => {
   const invoicesList = props.invoices.map((item) => {
+    const openEditFormWithData = () => {
+      props.openEditInvoiceForm()
+      props.setCurrentUserId(item.id)
+    }
     return (
       <Invoice
         number={item.number}
@@ -12,6 +16,8 @@ const InvoicesList = (props) => {
         comment={item.comment}
         id={item.id}
         key={item.id}
+        openEditFormWithData={openEditFormWithData} 
+         
       />
     );
   });
