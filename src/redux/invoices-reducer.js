@@ -5,19 +5,22 @@ const OPEN_ADD_INVOICE_FORM =
   "__invoise-managment/invoises/OPEN-ADD-INVOICE-FORM";
 const OPEN_EDIT_INVOICE_FORM =
   "__invoise-managment/invoises/OPEN-EDIT-INVOICE-FORM";
+const OPEN_REMOVE_INVOICE_BLOCK =
+  "__invoise-managment/invoises/OPEN-REMOVE-INVOICE-BLOCK";
 const CLOSE_ACTION_FORM = "__invoise-managment/invoises/CLOSE-ACTION-FORM";
 const GET_INVOICES_NUMBERS =
   "__invoise-managment/invoises/GET-INVOICES-NUMBERS";
 const GET_INVOICES_ID = "__invoise-managment/invoises/GET-INVOICES-ID";
-const SET_CURRENT_USER_ID = "__invoise-managment/invoises/SET-CURRENT-USER-ID";
+const SET_CURRENT_INVOICE = "__invoise-managment/invoises/SET-CURRENT-INVOICE";
 
 let initialState = {
   invoices: [],
   isOpenAddBlock: false,
   isOpenEditBlock: false,
+  isOpenRemoveBlock: false,
   invoicesNumbers: [],
   invoicesId: [],
-  currentUserId: null,
+  currentInvoice: null,
 };
 
 const invoicesReducer = (state = initialState, action) => {
@@ -40,11 +43,18 @@ const invoicesReducer = (state = initialState, action) => {
         isOpenEditBlock: true,
       };
 
+    case OPEN_REMOVE_INVOICE_BLOCK:
+      return {
+        ...state,
+        isOpenRemoveBlock: true,
+      };
+
     case CLOSE_ACTION_FORM:
       return {
         ...state,
         isOpenAddBlock: false,
         isOpenEditBlock: false,
+        isOpenRemoveBlock: false,
       };
 
     case GET_INVOICES_NUMBERS:
@@ -59,10 +69,10 @@ const invoicesReducer = (state = initialState, action) => {
         invoicesId: action.invoicesId,
       };
 
-    case SET_CURRENT_USER_ID:
+    case SET_CURRENT_INVOICE:
       return {
         ...state,
-        currentUserId: action.currentUserId,
+        currentInvoice: action.currentInvoice,
       };
 
     default:
@@ -75,9 +85,9 @@ export const setInvoces = (invoices) => ({
   invoices,
 });
 
-export const setCurrentUserId = (currentUserId) => ({
-  type: SET_CURRENT_USER_ID,
-  currentUserId,
+export const setCurrentInvoice = (currentInvoice) => ({
+  type: SET_CURRENT_INVOICE,
+  currentInvoice,
 });
 
 export const openAddInvoiceForm = (isOpenAddBlock) => ({
@@ -90,10 +100,20 @@ export const openEditInvoiceForm = (isOpenEditBlock) => ({
   isOpenEditBlock,
 });
 
-export const closeActionForm = (isOpenAddBlock, isOpenEditBlock) => ({
+export const openRemoveInvoiceBlock = (isOpenRemoveBlock) => ({
+  type: OPEN_REMOVE_INVOICE_BLOCK,
+  isOpenRemoveBlock,
+});
+
+export const closeActionForm = (
+  isOpenAddBlock,
+  isOpenEditBlock,
+  isOpenRemoveBlock
+) => ({
   type: CLOSE_ACTION_FORM,
   isOpenAddBlock,
   isOpenEditBlock,
+  isOpenRemoveBlock,
 });
 
 export const getInvocesNumbers = (invoicesNumbers) => ({
@@ -123,31 +143,28 @@ export const getInvoices = (invoices) => async (dispatch) => {
 
 export const saveNewInvoice =
   (id, number, date_created, date_supplied, comment) => async (dispatch) => {
-    const response = await invoicesAPI.saveNewInvoices(
+    await invoicesAPI.saveNewInvoices(
       id,
       number,
       date_created,
       date_supplied,
       comment
     );
-    console.log(response);
   };
 
 export const updateCurrentInvoice =
   (id, number, date_created, date_supplied, comment) => async (dispatch) => {
-    const response = await invoicesAPI.updateCurrentInvoice(
+    await invoicesAPI.updateCurrentInvoice(
       id,
       number,
       date_created,
       date_supplied,
       comment
     );
-    console.log(response);
   };
 
 export const removeCurrentInvoice = (id) => async (dispatch) => {
-  const response = await invoicesAPI.removeCurrentInvoice(id);
-  console.log(response);
+  await invoicesAPI.removeCurrentInvoice(id);
 };
 
 export default invoicesReducer;

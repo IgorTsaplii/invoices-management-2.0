@@ -172,22 +172,8 @@ h1:after {
   background: #e4e6e9;
 }
 
-.big_blue_action_button {
-  color: #fff;
-  border: none;
-  background: #4973ff;
-  padding: 12px 32px;
-  border-radius: 6px;
-  margin: 8px 8px 0 0;
-  cursor: pointer;
-}
-
-.blue_big_action_button:hover {
-  background: #1445e3;
-}
-
-.blue_big_action_button:focus {
-  outline: none;
+.action_button {
+  margin-top: 8px;
 }
 
 @media (min-width: 576px) {

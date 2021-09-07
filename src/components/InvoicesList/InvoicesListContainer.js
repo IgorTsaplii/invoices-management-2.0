@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getInvoices, openEditInvoiceForm, setCurrentUserId } from "../../redux/invoices-reducer";
+import {
+  getInvoices,
+  openEditInvoiceForm,
+  openRemoveInvoiceBlock,
+  setCurrentInvoice,
+} from "../../redux/invoices-reducer";
 import InvoicesList from "./InvoicesList";
 
 class InvoicesListContainer extends Component {
@@ -13,7 +18,8 @@ class InvoicesListContainer extends Component {
       <InvoicesList
         invoices={this.props.invoices}
         openEditInvoiceForm={this.props.openEditInvoiceForm}
-        setCurrentUserId={this.props.setCurrentUserId}
+        openRemoveInvoiceBlock={this.props.openRemoveInvoiceBlock}
+        setCurrentInvoice={this.props.setCurrentInvoice}
       />
     );
   }
@@ -28,5 +34,6 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   getInvoices,
   openEditInvoiceForm,
-  setCurrentUserId
+  openRemoveInvoiceBlock,
+  setCurrentInvoice,
 })(InvoicesListContainer);

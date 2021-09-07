@@ -8,7 +8,7 @@ class EditInvoiceBlockContainer extends Component {
     return (
       <EditInvoiceBlock
         closeActionForm={this.props.closeActionForm}
-        currentUserId={this.props.currentUserId}
+        currentInvoice={this.props.currentInvoice}
         invoices={this.props.invoices}
         updateCurrentInvoice={this.props.updateCurrentInvoice}
         invoicesNumbers={this.props.invoicesNumbers}
@@ -19,7 +19,7 @@ class EditInvoiceBlockContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentUserId: state.invoicesData.currentUserId,
+    currentInvoice: state.invoicesData.currentInvoice,
     invoices: state.invoicesData.invoices,
     invoicesNumbers: state.invoicesData.invoicesNumbers,
   };

@@ -10,7 +10,7 @@ const Invoice = (props) => {
       <p>{props.comment}</p>
       <div className={classes.edit_buttons_block}>
         <button onClick={props.openEditFormWithData}>Edit</button>
-        <button onClick={props.openEditFormWithData}>Remove</button>
+        <button onClick={props.removeInvoiceWithData}>Remove</button>
       </div>
     </div>
   );

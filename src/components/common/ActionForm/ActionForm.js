@@ -5,8 +5,9 @@ import {
   minLengthCreator,
   required,
 } from "../../../utils/validators/validators";
+import BigActionButton from "../BigActionButton/BigActionButton";
 import { Input, Textaria } from "../FormsControl/FormsControl";
-import classes from "./ActionForms.module.css"
+import classes from "./ActionForms.module.css";
 
 const ActionForm = (props) => {
   const maxLength10 = maxLengthCreator(10);
@@ -52,10 +53,15 @@ const ActionForm = (props) => {
             validate={[maxLength160]}
           />
         </label>
-        <button className={classes.close_action_form_button} onClick={ props.closeActionForm}></button>
+        <button
+          className={classes.close_action_form_button}
+          onClick={props.closeActionForm}
+        ></button>
       </div>
       <p className={classes.form_error}>{props.error}</p>
-      <button className= {classes.save_button}>Save</button>
+      <div className={classes.save_button}>
+        <BigActionButton buttonText="Save" />
+      </div>
     </form>
   );
 };

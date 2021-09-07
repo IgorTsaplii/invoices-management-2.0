@@ -1,0 +1,17 @@
+.action_button {
+  display: block;
+  color: #fff;
+  border: none;
+  background: #4973ff;
+  padding: 12px 32px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.action_button:hover {
+  background: #1445e3;
+}
+
+.action_button:focus {
+  outline: none;
+}

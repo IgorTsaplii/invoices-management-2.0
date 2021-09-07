@@ -6,8 +6,14 @@ const InvoicesList = (props) => {
   const invoicesList = props.invoices.map((item) => {
     const openEditFormWithData = () => {
       props.openEditInvoiceForm()
-      props.setCurrentUserId(item.id)
+      props.setCurrentInvoice(item)
     }
+
+    const removeInvoiceWithData = () => {
+      props.openRemoveInvoiceBlock()
+      props.setCurrentInvoice(item)
+    }
+
     return (
       <Invoice
         number={item.number}
@@ -17,6 +23,7 @@ const InvoicesList = (props) => {
         id={item.id}
         key={item.id}
         openEditFormWithData={openEditFormWithData} 
+        removeInvoiceWithData={removeInvoiceWithData}
          
       />
     );

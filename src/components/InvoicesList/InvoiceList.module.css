@@ -26,8 +26,7 @@
   color: #6085fe
 } 
 
- .edit_buttons_block  button{ /*.edit_button,
-  .remove_button*/ 
+ .edit_buttons_block  button{ 
     background: none;
     display: inline-block;
     color: #7e869b;

@@ -1,0 +1,33 @@
+.massage_block {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 300px;
+  padding: 50px;
+  text-align: center;
+}
+
+.confirmation_button,
+.cancel_button {
+  width: 50px;
+  text-align: center;
+  margin-top: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #7e869b;
+  padding: 0;
+  font-size: 16px;
+  border-bottom: 2px solid #7e869b;
+}
+
+.confirmation_button:hover,
+.cancel_button:hover {
+  color: #000;
+  border-color: #000;
+}
+
+.confirmation_button {
+  margin-right: 30px;
+}

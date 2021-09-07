@@ -3,20 +3,15 @@ import { reduxForm } from "redux-form";
 import ActionForm from "../common/ActionForm/ActionForm";
 
 const EditInvoiceBlock = (props) => {
-  let currentUser = props.invoices.find(
-    (item) => item.id === props.currentUserId
-  );
-  console.log(currentUser);
-
   const onSubmit = (formData) => {
     let number = JSON.parse(formData.number);
     if (
       !props.invoicesNumbers.some((item) => item === number) ||
-      number === currentUser.number
+      number === props.currentInvoice.number
     ) {
       props
         .updateCurrentInvoice(
-          props.currentUserId,
+          props.currentInvoice.id,
           number,
           formData.date_created,
           formData.date_supplied,
@@ -39,7 +34,7 @@ const EditInvoiceBlock = (props) => {
       <section>
         <ReduxActionForm
           closeActionForm={props.closeActionForm}
-          initialValues={currentUser}
+          initialValues={props.currentInvoice}
           onSubmit={onSubmit}
         />
       </section>
